@@ -98,7 +98,32 @@ extname - 파일 패스에서 파일의 확장자를 반환
 require() - 외부 모듈을 가져올수 있는 메소드, 파라미터로 추가할 모듈의 파일 경로값을 받음
 
 + module과 require 생성
+
 require 메서드가 작동하는 원리 이해전 먼저 require와 module이 어떻게 생성되는지 살펴보면 터미널 커맨드에 node를 실행시키고 this를 입력해보면 NodeJS가 local object에 module property를 생성하여 Module object를 대입하고 require method를 추가하였음이 확인 가능하다
 
 
 NodeJS는 각각의 모듈마다 module property와 require mothod를 만들어 준다. 모듈끼리 소통하기 위해서 이들을 활용하게 된다 이 medule과 require는 global object에 붙은 하나의 static property가 아니다. 이들은 local object로서 각 모듈마다 하나씩 가진 API이다.
+
+NodeJS의 장점
+
+*javascript 기반이고 개발 구조가 단순화 되어 있어 빠르게 개발 가능
+*배우기 쉽다
+*풀스택 개발 용이
+*비동기 I/O 작업을 지원해 높은 성능
+*확장성이 뛰어남
+
++ 내부 작동 원리 구조
+
+NodeJS는 Google의 Chrome V8 자바스크립트 엔진을 기본으로 동작한다.
+
+Single Thread 기반의 Event Loop(libuv)가 돌면서 요청을 처리하며
+
+시스템 적으로  논블로킹 io를 지원하지 않는 io 호출이 있는 경우, 
+
+이를 비동기 처리하기 위해 내부의 Thread pool(libio)을 별도 이용하여 처리한다
+
+그 위에 네트워크 프로토콜을 처리하는 socket, http 바인딩 모듈이 로드 되고, 
+
+맨 윗단에, node.js에서 제공하는 standard library (파일 핸들링, console등)이 로드 된다.
+
+
