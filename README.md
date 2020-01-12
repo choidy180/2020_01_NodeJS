@@ -107,10 +107,15 @@ NodeJS는 각각의 모듈마다 module property와 require mothod를 만들어 
 NodeJS의 장점
 
 *javascript 기반이고 개발 구조가 단순화 되어 있어 빠르게 개발 가능
+
 *배우기 쉽다
+
 *풀스택 개발 용이
+
 *비동기 I/O 작업을 지원해 높은 성능
+
 *확장성이 뛰어남
+
 
 + 내부 작동 원리 구조
 
