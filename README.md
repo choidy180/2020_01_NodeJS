@@ -152,3 +152,20 @@ app.use(function(err, req, res, next) {              (1)<br>
 
 
 (2) status를 500으로 설정하고 에러 메시지를 전송하는 코드입니다.
+
+(2) 오류처리 미들웨어의 위치
+
+var bodyParser = require('body-parser');
+
+var methodOverride = require('method-override');
+
+
+app.use(bodyParser());
+
+app.use(methodOverride());
+
+app.use(function(err, req, res, next) {
+
+  // logic
+  
+});
