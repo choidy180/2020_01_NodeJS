@@ -132,3 +132,23 @@ Single Thread 기반의 Event Loop(libuv)가 돌면서 요청을 처리하며
 맨 윗단에, node.js에서 제공하는 standard library (파일 핸들링, console등)이 로드 된다.
 
 
++ 1.오류 처리
+
+오류처리란, 예상치 못한 요구가 들어왔을 때 서버에서 어떻게 대처할지를 미리 정해주는 것이다. 예를 들면 사용자가 존재하지 않는
+페이지로 연결을 요청한다면 404 에러번호를 헤더에 기입하고 에러 메시지를 사용자에게 전송해야 한다
+
++ 2.Express에서의 오류
+
+Express는 오류처리 또한 미들웨어를 통해 이루어진다. 다만 오류 처리하는 함수가 기존의 미들웨어와의 차이를 두기 위해 매개변수를
+(err, request, response, next) 이렇게 받는다.
+
+(1)기본적인 사용방법
+app.use(function(err, req, res, next) {              (1)<br>
+  console.error(err.stack);<br>
+  res.status(500).send('Something broke!');          (2)<br>
+});<br>
+
+(1) 매개변수로 (err,req,res,next) 4개를 받고 있습니다.
+
+
+(2) status를 500으로 설정하고 에러 메시지를 전송하는 코드입니다.
