@@ -169,3 +169,5 @@ app.use(function(err, req, res, next) {
   // logic
   
 });
+
+오류처리 미들웨어는 반드시 app.use()와 라우트 호출을 정의한 후 맨 마지막에 
